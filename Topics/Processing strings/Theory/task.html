@@ -1,0 +1,47 @@
+<html>
+ <head></head>
+ <body>
+  <p>As you already know, a string is a sequence of characters with a single data type, and so is an array. Strings are similar to arrays: in some sense, a string looks like an array of characters. Moreover, you can iterate both over strings and arrays. Sometimes you may need to process a string and convert it into an array. In this topic, we will discuss the ways you can process strings.</p> 
+  <h2 style="text-align: center;">Strings and arrays</h2> 
+  <p>It's possible to convert between strings and character arrays using special methods like <code class="language-java">valueOf()</code> and <code class="language-java">toCharArray()</code>:</p> 
+  <pre><code class="language-java">char[] chars = { 'A', 'B', 'C', 'D', 'E', 'F' };
+
+String stringFromChars = String.valueOf(chars); // "ABCDEF"
+
+char[] charsFromString = stringFromChars.toCharArray(); // { 'A', 'B', 'C', 'D', 'E', 'F' }
+
+String theSameString = new String(charsFromString); // "ABCDEF"</code></pre> 
+  <p>There is another way to turn a string into an array. Take a look:</p> 
+  <pre><code class="language-java">String text = "Hello";
+String[] parts = text.split(""); // {"H", "e", "l", "l", "o"}</code></pre> 
+  <p>Here we used a much more concise method that <em>splits</em> a string into parts. Let's consider it in more detail!</p> 
+  <h2 style="text-align: center;">Splitting the string</h2> 
+  <p>A string can be separated by delimiters to an array of strings. To perform this, call the method <strong><code class="language-java">split</code></strong> , which divides a string into substrings by a <strong>separator</strong>. In the previous example, we used the <code class="language-java">""</code> delimiter, which automatically splits a string into the smallest elements, substrings, that consist of one char.</p> 
+  <p>If the delimiter is specified, the method returns an array of all the substrings and, notably, the delimiter itself is not included in any of the substrings:</p> 
+  <pre><code class="language-java">String sentence = "a long text";
+String[] words = sentence.split(" "); // {"a", "long", "text"}</code></pre> 
+  <p>Let's try to split an American phone number into country code, area code, central office code, and other remaining digits:</p> 
+  <pre><code class="language-java">String number = "+1-213-345-6789";
+String[] parts = number.split("-"); // {"+1", "213", "345", "6789"}</code></pre> 
+  <p>Note that all the parts are still strings no matter how they look!</p> 
+  <p>Choose your delimiter wisely, otherwise, you can receive some sentences that start with a space:</p> 
+  <pre><code class="language-java">String text = "That's one small step for a man, one giant leap for mankind.";
+String[] parts = text.split(","); // {"That's one small step for a man", " one giant leap for mankind."}</code></pre> 
+  <p>You can choose any delimiter you prefer, even a combination of spaces and words:</p> 
+  <pre><code class="language-java">String text = "I'm gonna be a programmer";
+String[] parts = text.split(" gonna be "); // {"I'm", "a programmer"}</code></pre> 
+  <p>As you can see, the <code class="language-java">split</code> method is also a good tool to get rid of something you don't need or don't want to use.</p> 
+  <h2>Iterating over a string</h2> 
+  <p>It's possible to iterate over the characters of a string using a loop <strong>(while</strong>, <strong>do-while</strong>, <strong>for-loop).</strong></p> 
+  <p>See the following example:</p> 
+  <pre><code class="language-java">String scientistName = "Isaac Newton";
+
+for (int i = 0; i &lt; scientistName.length(); i++) {
+    System.out.print(scientistName.charAt(i) + " "); // print the current character
+}</code></pre> 
+  <p>The code outputs:</p> 
+  <pre><code class="language-java">I s a a c   N e w t o n</code></pre> 
+  <h2>Conclusion</h2> 
+  <p>As you see, there are various methods to convert a string, like <code class="language-java">valueOf()</code>, <code class="language-java">toCharArray()</code>, or <code class="language-java">split()</code>. You may also iterate over the characters of a string in a loop. Using these methods will help you solve different tasks for improving your programming experience. </p>
+ </body>
+</html>
