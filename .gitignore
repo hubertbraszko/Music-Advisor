@@ -2,7 +2,9 @@ Topics/
 /.gradle/
 course-info.yaml
 course-remote-info.yaml
-/Music*Advisor/*
-!/Music*Advisor/task/src/advisor/*
+/Music\ Advisor/*
+!/Music\ Advisor/task
+/Music\ Advisor/task/*
+!/Music\ Advisor/task/src
 /.idea/
 
