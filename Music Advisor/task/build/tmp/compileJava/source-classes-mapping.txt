@@ -1,8 +1,0 @@
-advisor/UserTextInterface.java
- advisor.UserTextInterface
-advisor/Main.java
- advisor.Main
-advisor/Messeges.java
- advisor.Messeges
-advisor/Inputs.java
- advisor.Inputs
