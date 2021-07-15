@@ -10,15 +10,17 @@ public enum Messeges {
     EXIT("---GOODBYE!---"),
     SUCCESS("---SUCCESS---"),
     UNAUTHORIZED("Please, provide access for application."),
-    AUTHLINK("https://accounts.spotify.com/authorize?" +
-                     "client_id=" + "890f9c4b0e8f4843b4a49b4b7180247f" +
-            "&redirect_uri=https://www.example.com&response_type=code");
+    AUTHLINK( Config.SERVER_PATH.get() + Config.AUTHORIZE_PATH.get() + "?" +
+                     "client_id=" + Config.CLIENT_ID.get() +
+            "&redirect_uri=" + Config.REDIRECT_URI.get() + "&response_type=code");
 
     String msg;
 
     Messeges(String text) {
         this.msg = text;
     }
+
+
 
     public void print(String... strings) {
         System.out.println(String.format(msg, strings));

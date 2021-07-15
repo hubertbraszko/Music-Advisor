@@ -1,11 +1,13 @@
 package advisor;
 
 import java.util.Scanner;
+import java.io.IOException;
 
 public class UserTextInterface {
 
     private Scanner scanner = new Scanner(System.in);
     private boolean authorized = false;
+
 
 
     public UserTextInterface() {
@@ -18,7 +20,11 @@ public class UserTextInterface {
 
     private String responseMessage;
 
+    private Server server;
+
     public void start() {
+
+
 
         String input = getInput();
 
@@ -32,9 +38,10 @@ public class UserTextInterface {
 
            if(input.equals(Inputs.AUTH.get()))
            {
-               Messeges.AUTHLINK.print();
+
+               authorize();
                authorized = true;
-               Messeges.SUCCESS.print();
+               //Messeges.SUCCESS.print();
            }
            else {
                Messeges.UNAUTHORIZED.print();
@@ -89,6 +96,12 @@ public class UserTextInterface {
            }
        }
 
+    }
+
+    public void authorize() {
+        Server authorizer = new Server();
+        authorizer.createServer();
+        authorizer.authRequest();
     }
 
 
