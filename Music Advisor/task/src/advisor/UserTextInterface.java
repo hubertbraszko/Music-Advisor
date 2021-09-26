@@ -1,14 +1,20 @@
 package advisor;
 
+
+import spotifyApi.ApiCaller;
+import spotifyApi.CategoryCall;
+
+import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
+
 
 public class UserTextInterface {
 
     private Scanner scanner = new Scanner(System.in);
     private boolean authorized = false;
 
-
+    private ApiCaller apiCaller = new ApiCaller();
 
     public UserTextInterface() {
 
@@ -19,8 +25,11 @@ public class UserTextInterface {
     }
 
     private String responseMessage;
+    private List<String> response;
 
     private Server server;
+
+
 
     public void start() {
 
@@ -41,7 +50,7 @@ public class UserTextInterface {
 
                authorize();
                authorized = true;
-               //Messeges.SUCCESS.print();
+
            }
            else {
                Messeges.UNAUTHORIZED.print();
@@ -75,12 +84,14 @@ public class UserTextInterface {
 
                Messeges.CATEGORIES.print();
 
-               responseMessage = "Top Lists\n" +
-                       "Pop\n" +
-                       "Mood\n" +
-                       "Latin";
+               apiCaller.setApiCall(new CategoryCall());
 
-               System.out.println(responseMessage);
+//               responseMessage = "Top Lists\n" +
+//                       "Pop\n" +
+//                       "Mood\n" +
+//                       "Latin";
+//
+//               System.out.println(responseMessage);
 
            } else if (input.split(" ")[0].equals(Inputs.PLAYLISTS.get())) {
 
@@ -94,6 +105,10 @@ public class UserTextInterface {
                System.out.println(responseMessage);
 
            }
+
+           response = apiCaller.call();
+           response.forEach(System.out::println);
+
        }
 
     }
@@ -103,6 +118,8 @@ public class UserTextInterface {
         authorizer.createServer();
         authorizer.authRequest();
     }
+
+
 
 
 }
