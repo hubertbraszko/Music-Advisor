@@ -1,12 +1,13 @@
 package advisor;
 
 
-import spotifyApi.ApiCaller;
-import spotifyApi.CategoryCall;
+import spotifyApi.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 
 public class UserTextInterface {
@@ -28,7 +29,6 @@ public class UserTextInterface {
     private List<String> response;
 
     private Server server;
-
 
 
     public void start() {
@@ -62,23 +62,14 @@ public class UserTextInterface {
 
                Messeges.NEW_RELEASES.print();
 
-               responseMessage = "Mountains [Sia, Diplo, Labrinth]\n" +
-                       "Runaway [Lil Peep]\n" +
-                       "The Greatest Show [Panic! At The Disco]\n" +
-                       "All Out Life [Slipknot]";
-
-               System.out.println(responseMessage);
+               apiCaller.setApiCall(new NewReleasesCall());
 
            } else if (input.equals(Inputs.FEATURED.get())) {
 
                Messeges.FEATURED.print();
 
-               responseMessage = "Mellow Morning\n" +
-                       "Wake Up and Smell the Coffee\n" +
-                       "Monday Motivation\n" +
-                       "Songs to Sing in the Shower";
+               apiCaller.setApiCall(new FeaturedCall());
 
-               System.out.println(responseMessage);
 
            } else if (input.equals(Inputs.CATEGORIES.get())) {
 
@@ -86,24 +77,13 @@ public class UserTextInterface {
 
                apiCaller.setApiCall(new CategoryCall());
 
-//               responseMessage = "Top Lists\n" +
-//                       "Pop\n" +
-//                       "Mood\n" +
-//                       "Latin";
-//
-//               System.out.println(responseMessage);
 
            } else if (input.split(" ")[0].equals(Inputs.PLAYLISTS.get())) {
 
-               Messeges.PLAYLISTS.print(input.split(" ")[1].toUpperCase());
+               String cName = Arrays.stream(input.split(" ")).skip(1).collect(Collectors.joining(" "));
+               Messeges.PLAYLISTS.print(cName.toUpperCase());
 
-               responseMessage = "Walk Like A Badass  \n" +
-                       "Rage Beats  \n" +
-                       "Arab Mood Booster  \n" +
-                       "Sunday Stroll";
-
-               System.out.println(responseMessage);
-
+                apiCaller.setApiCall(new PlaylistsCall(cName));
            }
 
            response = apiCaller.call();
@@ -118,8 +98,5 @@ public class UserTextInterface {
         authorizer.createServer();
         authorizer.authRequest();
     }
-
-
-
 
 }

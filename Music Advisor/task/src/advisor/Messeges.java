@@ -12,7 +12,7 @@ public enum Messeges {
     UNAUTHORIZED("Please, provide access for application."),
     AUTHLINK( Config.SERVER_PATH.get() + Config.AUTHORIZE_PATH.get() + "?" +
                      "client_id=" + Config.CLIENT_ID.get() +
-            "&redirect_uri=" + Config.REDIRECT_URI.get() + "&response_type=code");
+                     "&redirect_uri=" + Config.REDIRECT_URI.get() + "&response_type=code");
 
     String msg;
 
