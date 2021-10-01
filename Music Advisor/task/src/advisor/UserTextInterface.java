@@ -27,12 +27,12 @@ public class UserTextInterface {
 
     private String responseMessage;
     private List<String> response;
+    private ResponseHandler responseHandler = new ResponseHandler();
 
     private Server server;
 
 
     public void start() {
-
 
 
         String input = getInput();
@@ -60,20 +60,20 @@ public class UserTextInterface {
 
            if(input.equals(Inputs.NEW.get())){
 
-               Messeges.NEW_RELEASES.print();
+               //Messeges.NEW_RELEASES.print();
 
                apiCaller.setApiCall(new NewReleasesCall());
 
            } else if (input.equals(Inputs.FEATURED.get())) {
 
-               Messeges.FEATURED.print();
+               //Messeges.FEATURED.print();
 
                apiCaller.setApiCall(new FeaturedCall());
 
 
            } else if (input.equals(Inputs.CATEGORIES.get())) {
 
-               Messeges.CATEGORIES.print();
+               //Messeges.CATEGORIES.print();
 
                apiCaller.setApiCall(new CategoryCall());
 
@@ -81,13 +81,25 @@ public class UserTextInterface {
            } else if (input.split(" ")[0].equals(Inputs.PLAYLISTS.get())) {
 
                String cName = Arrays.stream(input.split(" ")).skip(1).collect(Collectors.joining(" "));
-               Messeges.PLAYLISTS.print(cName.toUpperCase());
+               //Messeges.PLAYLISTS.print(cName.toUpperCase());
 
                 apiCaller.setApiCall(new PlaylistsCall(cName));
+           } else if (input.equals(Inputs.NEXTPAGE.get())) {
+
+               responseHandler.nextPage();
+
+           } else if (input.equals(Inputs.PREVIOUSPAGE.get())) {
+
+               responseHandler.previousPage();
+
            }
 
-           response = apiCaller.call();
-           response.forEach(System.out::println);
+
+            response = apiCaller.call();
+           //response.forEach(System.out::println);
+
+            responseHandler.setData(response);
+            responseHandler.print();
 
        }
 

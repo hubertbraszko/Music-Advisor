@@ -6,10 +6,11 @@ public enum Config {
     AUTHORIZE_PATH("/authorize"),
     REDIRECT_URI("http://localhost:8080/"),
     CLIENT_ID("890f9c4b0e8f4843b4a49b4b7180247f"),
-    CLIENT_SECRET(""),
+    CLIENT_SECRET("4d3d40487d30473fbe31c6a607baef6e"),
     ACCESS_TOKEN(""),
     AUTH_CODE(""),
-    API_SERVER("https://api.spotify.com/v1/");
+    API_SERVER("https://api.spotify.com/v1/"),
+    ITEMSPERPAGE("");
 
 
     String text;

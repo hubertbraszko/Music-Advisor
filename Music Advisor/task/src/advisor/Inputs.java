@@ -6,7 +6,9 @@ public enum Inputs {
     CATEGORIES("categories"),
     PLAYLISTS("playlists"),
     EXIT("exit"),
-    AUTH("auth");
+    AUTH("auth"),
+    NEXTPAGE("next"),
+    PREVIOUSPAGE("prev");
 
     String text;
 
