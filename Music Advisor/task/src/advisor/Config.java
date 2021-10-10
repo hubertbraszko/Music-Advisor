@@ -10,7 +10,7 @@ public enum Config {
     ACCESS_TOKEN(""),
     AUTH_CODE(""),
     API_SERVER("https://api.spotify.com/v1/"),
-    ITEMSPERPAGE("");
+    ITEMSPERPAGE("5");
 
 
     String text;
