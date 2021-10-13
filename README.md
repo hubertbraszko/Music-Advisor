@@ -4,7 +4,7 @@
 ## Description
 
 Music Advisor Project for Learning how to work with API's.
-This application communicates with spotify API, and gets you links and basic information about music based on your Spotify Accout
+This application communicates with spotify API, and gets you links and basic information about music based on your Spotify Account
 
 ## Example output
 ">" character represents the user input. Note that it's not part of the input.
