@@ -6,5 +6,6 @@ course-remote-info.yaml
 !/Music\ Advisor/task
 /Music\ Advisor/task/*
 !/Music\ Advisor/task/src
+!/Music\ Advisor/task/build.gradle
 /.idea/
 
