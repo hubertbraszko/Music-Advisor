@@ -1,16 +1,32 @@
 # Music Advisor
 
+## Table of Contents
+1. [Description](#description)
+2. [How to build and run](#build)
+3. [Usage](#usage)
+4. [Example output](#example)
+
+<div id="description">
 
 ## Description
 
 Music Advisor Project for Learning how to work with API's.
 This application communicates with spotify API, and gets you links and basic information about music based on your Spotify Account
 
+<div id="build">
+  
 ## How to build and run 
 
 1. Clone the repository
 2. Inside the repository run ```./gradlew build``` and then ```./gradlew run```
-3. Navigate through the app using following commands:
+
+**IMPORTANT NOTE:** When first running the App u have to provide the ```CLIENT_ID``` and ```CLIENT_SECRET``` in the Config.java file with values that you can get from https://developer.spotify.com/.
+
+<div id="usage">  
+  
+## Usage
+
+ Navigate through the app using following commands:
 
 - new - a list of new albums with artists and links on Spotify
 - featured - a list of Spotify-featured playlists with their links fetched from API
@@ -21,8 +37,9 @@ This application communicates with spotify API, and gets you links and basic inf
 - prev -navigates to previous page
 - exit - shuts down the application
 
-**IMPORTANT NOTE** When first running the App u have to provide the ```CLIENT_ID``` and ```CLIENT_SECRET``` in the Config.java file with values that you can get from https://developer.spotify.com/.
-
+  
+<div id="example">
+  
 ## Example output
 ">" character represents the user input. Note that it's not part of the input.
 
